@@ -53,9 +53,6 @@ class MainController extends Controller
         $products = $productsQuery->paginate(12)->withPath("?" . $request->getQueryString());
         $categories = Category::get();
 
-        // if($request->has('category_id')){
-        //     $products = Product::where('category_id', $request->category_id)->get();
-        // }
         return view('index', ['products' => $products, 'categories' => $categories]);
     }
 
@@ -66,42 +63,6 @@ class MainController extends Controller
 
 
     public function category(Request $request, $code){
-        //
-        $productsQuery = Product::with('category');
-
-        if ($request->filled('price_from')) {
-            $productsQuery->where('price', '>=', $request->price_from);
-        }
-        if ($request->filled('price_to')) {
-            $productsQuery->where('price', '<=', $request->price_to);
-        }
-        foreach (['hit', 'recommend', 'new'] as $field) {
-            if ($request->has($field)){
-                $productsQuery->$field();
-            }
-        }
-
-        $sort = $request->input('sort', 'name');
-        switch ($sort) {
-            case 'price_high':
-                $productsQuery->orderByDesc('price');
-                break;
-            case 'price_low':
-                $productsQuery->orderBy('price');
-                break;
-            case 'created_at_new':
-                $productsQuery->orderByDesc('created_at');
-                break;
-            case 'created_at_old':
-                $productsQuery->orderBy('created_at');
-                break;
-            default:
-                $productsQuery->orderBy('name');
-                break;
-        }
-
-        $products = $productsQuery->paginate(12)->withPath("?" . $request->getQueryString());
-        //
         $categories = Category::get();
         $category = Category::where('code', $code)->first();
         return view('category', compact('category', 'categories', 'products'));
