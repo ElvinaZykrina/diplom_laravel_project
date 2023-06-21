@@ -26,7 +26,7 @@ class AlterTableUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_admin')->default(0);
+            $table->dropColumn('is_admin');
         });
     }
 }
