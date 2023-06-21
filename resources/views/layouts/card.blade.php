@@ -12,7 +12,7 @@
         </div>
         <div class="product">
            <div class="product-photo">
-                <a href="{{ route('product', [isset($category) ? $category->code : $product->category->code, $product->code]) }}">
+                <a href="{{ route('product', [$product->category->code, $product->code]) }}">
                     <img class="product-image" src="{{ Storage::url($product->image) }}" alt="">
                 </a>
            </div>
