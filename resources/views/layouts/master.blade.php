@@ -85,12 +85,7 @@
             </div>
         </div>
         <div class="search-container">
-            <form action="{{route('search', $category)}}" method="get">
-                <div class="d-flex justify-content-center search-input-container">
-                    <input type="text" name="s" id="s" class="search-input" value="{{request()->s}}" placeholder="Поиск товара...">
-                    <button class="btn-search" type="submit">Найти</button>
-                </div>
-            </form>
+
         </div>
         <!-- <div class="search">
         </div> -->

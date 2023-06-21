@@ -66,9 +66,6 @@ Route::group(['prefix'=>'basket'], function(){
 
 
 Route::get('/aboutUs', 'MainController@aboutUs')->name('aboutUs');
-// Route::get('/service', function () {
-//     return view('service');
-// })->name('service');
 Route::get('/service', 'MainController@service')->name('service');
 Route::get('/main', 'MainController@main')->name('main');
 Route::get('/service', 'MainController@service')->name('service');
