@@ -81,20 +81,7 @@
             <div id="myDropdown" class="dropdown-content">
                     <a href="{{ route('index') }}">Все товары</a>
                     <div class="line_hidden"></div>
-                @foreach ($categories as $category)
-                    <a href="{{ route('category', $category->code) }}">{{ $category->name }}</a>
-                    <div class="line_hidden"></div>
-                @endforeach
-                <!-- <a href="#">Бытовая химия</a>
-                <div class="line_hidden"></div>
-                <a href="#">Товары для дома</a>
-                <div class="line_hidden"></div>
-                <a href="#">Дача и сад</a>
-                <div class="line_hidden"></div>
-                <a href="#">Хозтовары</a>
-                <div class="line_hidden"></div>
-                <a href="#">Товары для отдыха</a>
-                <div class="line_hidden"></div> -->
+
             </div>
         </div>
         <div class="search-container">
