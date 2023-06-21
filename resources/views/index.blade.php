@@ -76,7 +76,11 @@
                         </ul>
                     @else
                         <div class="d-block text-center">
-                            <h1>Ничего не нашлось по запросу «{{request()->s}}»</h1>
+                            @if (!is_null(request()->s))
+                                <h1>Ничего не нашлось по запросу «{{request()->s}}»</h1>
+                            @else
+                                <h1>Ничего не нашлось по Вашему запросу</h1>
+                            @endif
                             <p>Попробуйте изменить или сократить запрос</p>
                             <img src="{{asset('img/sadlupa.svg')}}" alt="norequest" style="width: 100px;">
                         </div>
